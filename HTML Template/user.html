@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covidfree Service</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@700&family=Rubik:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+
+    <!-- Custom CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id='wrapper'>
+        <header id="header">
+            <nav class='header__navbar navbar'>
+                <div class='name'>
+                    <a href="index.html">
+                        #mephicovidfreeservice
+                    </a>
+                </div>
+                <ul class='profile navbar-right'>
+                    <a class="profile__menu" href="#">
+                        <span class="profile__status"><i class="fa fa-circle user-online-status user-online"></i></span>
+                        <span class="profile__username">Testuser</span>
+                        <span class="profile__exit"><i class="fas fa-sign-out-alt"></i></span>
+                    </a>
+                </ul>
+            </nav>
+        </header>
+    
+        <aside id='sidebar'>
+            <ul class='sidebar__list'>
+                <li class='sidebar__logo logo'>
+                    <a href="/">
+                        <img alt="НИЯУ МИФИ" src="assets/logo1.jpg" />
+                    </a>
+                </li>
+                <li>
+                    <a href="user.html">
+                        <i class="fa fa-home fa-fw"></i>
+                        Личная страница
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <i class="fa fa-atom fa-fw"></i>
+                        Главная
+                    </a>
+                </li>
+                <li>
+                    <a href="illness.html">
+                        <i class="far fa-frown fa-fw"></i>
+                        Отметка о заболевании
+                    </a>
+                </li>
+                <li>
+                    <a href="recovery.html">
+                        <i class="far fa-smile fa-fw"></i>
+                        Отметка о выздоровлении
+                    </a>
+                </li>
+                <li>
+                    <a href="faq.html">
+                        <i class="fas fa-question"></i>
+                        FAQ    
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-sign-out-alt fa-fw"></i>
+                        Выход
+                    </a>
+                </li>
+            </ul>
+        </aside>
+            
+        <main id="main" class="main-width-primary">
+            <div class="content-wrapper-column">
+                <div class="user-greeting card">
+                    <div class="title">
+                        <h3>Привет, <span class="username">Testuser</span> 👋</h3>
+                    </div>
+                </div>
+                <div class="user-status card">
+                    <div class="title">
+                        <h3>Cтатус <span class="username">Testuser</span></h3>
+                    </div>
+                    <p class="user-status__text">Вы здоровы &#128512;</p>
+                </div>
+                <!--<div class="user-status card">
+                    <div class="title">
+                        <h3>Cтатус <span class="username">vanyapanf</span></h3>
+                    </div>
+                    <p class="user-status__text">Вы на карантине &#129298;</p>
+                </div>
+                <div class="user-status card">
+                    <div class="title">
+                        <h3>Cтатус <span class="username">vanyapanf</span></h3>
+                    </div>
+                    <p class="user-status__text">Ваше подтверждение проверяется &#128076;</p>
+                </div>-->
+                <div class="tracker swiper card">
+                    <div class="title">
+                        <h3>Трекер здоровья</h3>
+                    </div>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide p-2">
+                            <form class="tracker__create">
+                                <input class="tracker__temperature" type="text" placeholder="Ваша температура">
+                                <br>
+                                <span class="title">Ваше состояние:</span>
+                                <br>
+                                <input type="radio" id="healthChoice1" class="tracker__health" value="bad" checked>
+                                <label for="healthChoice1">Плохо 1/5</label>
+                                <input type="radio" id="healthChoice2" class="tracker__health" value="more bad">
+                                <label for="healthChoice2">Хуже 2/5</label>
+                                <input type="radio" id="healthChoice3" class="tracker__health" value="normal">
+                                <label for="helathChoice3">Средне 3/5</label>
+                                <input type="radio" id="healthChoice4" class="tracker__health" value="more good">
+                                <label for="helathChoice3">Лучше 4/5</label>
+                                <input type="radio" id="healthChoice5" class="tracker__health" value="good">
+                                <label for="helathChoice3">Ок 5/5</label>
+                                <br>
+                                <button class="tracker__btn btn btn-primary" type="button">Добавить</button>
+                            </form>
+                        </div>
+                        <div class="swiper-slide p-2">
+                            <div class="tracker-slide">
+                                <span class="tracker-slide__date">1 день назад</span>
+                                <h4 class="tracker-slide__temperature title">Температура: 36.6</h4>
+                                <h4 class="tracker-slide__health title">Состояние: Ок 🙂</h4>
+                            </div>
+                        </div>
+                        <div class="swiper-slide p-2">
+                            <div class="tracker-slide">
+                                <span class="tracker-slide__date">2 дня назад</span>
+                                <h4 class="tracker-slide__temperature title">Температура: 36.5</h4>
+                                <h4 class="tracker-slide__health title">Состояние: Ок 🙂</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer id="footer" class="text-blue py-5">
+            <div class='mephi-title'>
+                © НИЯУ МИФИ, 2021–2021
+            </div>
+            <div class='dev-title'>Dev by vanyapanf</div>
+        </footer>   
+    </div> 
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <!-- Custom javascript-->
+    <script src="js/user.js"></script>
+
+</body>

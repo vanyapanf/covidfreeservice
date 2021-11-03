@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covidfree Service</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@700&family=Rubik:wght@500&display=swap" rel="stylesheet">   
+    
+    <!-- Custom CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <div id='wrapper'>
+        <header id="header">
+            <nav class='header__navbar navbar'>
+                <div class='name'>
+                    <a href="index.html">
+                        #mephicovidfreeservice
+                    </a>
+                </div>
+                <ul class='profile navbar-right'>
+                    <a class="profile__menu" href="#">
+                        <span class="profile__status"><i class="fa fa-circle user-online-status user-online"></i></span>
+                        <span class="profile__username">Testuser</span>
+                        <span class="profile__exit"><i class="fas fa-sign-out-alt"></i></span>
+                    </a>
+                </ul>
+            </nav>
+        </header>
+    
+        <aside id='sidebar'>
+            <ul class='sidebar__list'>
+                <li class='sidebar__logo logo'>
+                    <a href="/">
+                        <img alt="НИЯУ МИФИ" src="assets/logo1.jpg" />
+                    </a>
+                </li>
+                <li>
+                    <a href="user.html">
+                        <i class="fa fa-home fa-fw"></i>
+                        Личная страница
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <i class="fa fa-atom fa-fw"></i>
+                        Главная
+                    </a>
+                </li>
+                <li>
+                    <a href="illness.html">
+                        <i class="far fa-frown fa-fw"></i>
+                        Отметка о заболевании
+                    </a>
+                </li>
+                <li>
+                    <a href="recovery.html">
+                        <i class="far fa-smile fa-fw"></i>
+                        Отметка о выздоровлении
+                    </a>
+                </li>
+                <li>
+                    <a href="faq.html">
+                        <i class="fas fa-question"></i>
+                        FAQ    
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-sign-out-alt fa-fw"></i>
+                        Выход
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main id="main" class="main-width-large">
+            <div class="content-wrapper">
+                <div class="content-wrapper-column">
+                    <div class="posts card">
+                        <div class="title">
+                            <h3>Оперативная информция</h3>
+                        </div>
+                        <div class="post-card card p-2">
+                            <div class="post-card__body">
+                                <span class="post-card__tags-and-date">#mephicovidfreeservicetest . 10 окт.</span>
+                                <p class="post-card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                                <p class="post-card__img"><img src="https://pbs.twimg.com/media/Efdm5mMXkAMJqhl.jpg" class="card-img-top" alt=""></p>
+                                <span class="post-card__comments-title" onclick="showHide(this);"><i class="far fa-comment"></i> 4 Comments</span>
+                                <div class="post-card__comments">
+                                    <div class="post-card__create-comment">
+                                        <p>
+                                            <input class="create-comment__input" type="text" size="60" placeholder="Напишите что-нибудь">
+                                            <button class="create-comment__btn btn btn-primary" type="button"><i class="far fa-paper-plane"></i></button>
+                                        </p>
+                                    </div>
+                                    <div class="post-card__comment">
+                                        <span class="comment__username-and-date">testuser1 . 10 окт.</span>
+                                        <p class="comment__text">hello 👍👋</p>
+                                    </div>
+                                    <div class="post-card__comment">
+                                        <span class="comment__username-and-date">testuser2 . 10 окт.</span>
+                                        <p class="comment__text">Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto!</p>
+                                    </div>
+                                    <div class="post-card__comment">
+                                        <span class="comment__username-and-date">testuser3 . 10 окт.</span>
+                                        <p class="comment__text">Lorem ipsum dolor 👋</p>
+                                    </div>
+                                    <div class="post-card__comment">
+                                        <span class="comment__username-and-date">testuser4 . 10 окт.</span>
+                                        <p class="comment__text">Привет! 👋</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-card card p-2">
+                            <div class="post-card__body">
+                                <span class="post-card__tags-and-date">#mephicovidfreeservicetest . 10 окт.</span>
+                                <p class="post-card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                                <span class="post-card__comments-title" onclick="showHide(this);"><i class="far fa-comment"></i> 0 Comments</span>
+                                <div class="post-card__comments">
+                                    <div class="post-card__create-comment">
+                                        <p>
+                                            <input class="create-comment__input" type="text" size="60" placeholder="Напишите что-нибудь">
+                                            <button class="create-comment__btn btn btn-primary" type="button"><i class="far fa-paper-plane"></i></button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-card card p-2">
+                            <div class="post-card__body">
+                                <span class="post-card__tags-and-date">#mephicovidfreeservicetest . 10 окт.</span>
+                                <p class="post-card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                                <span class="post-card__comments-title" onclick="showHide(this);"><i class="far fa-comment"></i> 0 Comments</span>
+                                <div class="post-card__comments">
+                                    <div class="post-card__create-comment">
+                                        <p>
+                                            <input class="create-comment__input" type="text" size="60" placeholder="Напишите что-нибудь">
+                                            <button class="create-comment__btn btn btn-primary" type="button"><i class="far fa-paper-plane"></i></button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-wrapper-column">
+                    <div class="covidMetrics card">
+                        <h3 class="title">Счетчик COVID</h3>
+                        <h3 class="counter">10</h3>
+                        <h5>Заболели</h5>
+                        <h3 class="counter">15</h3>
+                        <h5>Выздоровели</h5>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer id="footer" class="text-blue py-5">
+            <div class='mephi-title'>
+                © НИЯУ МИФИ, 2021–2021
+            </div>
+            <div class='dev-title'>Dev by vanyapanf</div>
+        </footer> 
+
+    <!-- Custom javascript-->
+    <script src="js/index.js"></script>
+
+</body>
