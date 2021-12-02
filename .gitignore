@@ -1,0 +1,15 @@
+/covidfreeservice/node_modules
+/covidfreeservice/public/hot
+/covidfreeservice/public/storage
+/covidfreeservice/storage/*.key
+/covidfreeservice/vendor
+/covidfreeservice/.env
+/covidfreeservice/.env.backup
+/covidfreeservice/.phpunit.result.cache
+/covidfreeservice/docker-compose.override.yml
+/covidfreeservice/Homestead.json
+/covidfreeservice/Homestead.yaml
+/covidfreeservice/npm-debug.log
+/covidfreeservice/yarn-error.log
+/covidfreeservice/.idea
+/covidfreeservice/.vscode
