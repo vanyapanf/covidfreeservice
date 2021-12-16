@@ -14,7 +14,6 @@ class IndexController extends Controller
         $posts = Post::all();
         $illnessesCount = Report::where('type', 'illness')->count();
         $recoveriesCount = Report::where('type', 'recovery')->count();
-
         return view('index', [
             'posts' => $posts,
             'illnessesCount' => $illnessesCount,
@@ -40,11 +39,11 @@ class IndexController extends Controller
         ]);
     }
 
-    public function  createComment($post_id, $user_id, $comment_text) {
+    public function  createComment($post_id, $user_id, Request $request) {
         $comment = new Comment(array(
            'post_id' => $post_id,
            'user_id' => $user_id,
-           'comment_text' => $comment_text
+           'comment_text' => $request['comment_text']
         ));
 
         $comment->save();

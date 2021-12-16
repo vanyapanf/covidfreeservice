@@ -21,6 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin',
+        'role',
+        'study_group',
+        'tracker_id',
+        'status'
     ];
 
     /**
@@ -41,6 +46,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $table = 'users';
 
     public function reports()
     {

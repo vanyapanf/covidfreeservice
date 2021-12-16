@@ -15,7 +15,7 @@ class CreateTrackerInfoTable extends Migration
     {
         Schema::create('tracker_info', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
+            $table->string('tracker_id');
             $table->float('temperature');
             $table->integer('health_rate');
             $table->timestamps();

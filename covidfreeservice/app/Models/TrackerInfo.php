@@ -9,5 +9,6 @@ class TrackerInfo extends Model
 {
     use HasFactory;
 
-
+    protected $table = 'tracker_info';
+    protected $fillable = ['tracker_id', 'temperature', 'health_rate'];
 }

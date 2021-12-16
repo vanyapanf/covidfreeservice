@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class RecoveryController extends Controller
 {
     public function recovery($user_id) {
-        $user = User::where('user_id', $user_id)->last();
+        $user = User::where('id', $user_id)->latest()->first();
 
         return view('recovery', [
             'user' => $user
@@ -20,16 +20,14 @@ class RecoveryController extends Controller
         $recoveryReport = new Report(array(
             'user_id' => $user_id,
             'type' => 'recovery',
-            'status' => 'unconfirmed_report'
+            'status' => 'unconfirmed_report',
+            'path_to_doc' => '',
+            'admin_id' => -1
         ));
 
         $recoveryReport->save();
 
-        $user = User::where('user_id', $user_id)->last();
-
-        $user['tracker_id'] = '';
-
-        $user->save();
+        $user = User::where('id', $user_id)->latest()->first();
 
         return view('recovery', [
             'user' => $user
@@ -37,16 +35,16 @@ class RecoveryController extends Controller
     }
 
     public function addConfirmToRecoveryReport($user_id, Request $request) {
-        $path_to_doc = $request->file('document')->store('documents');
+        $path_to_doc = $request->file('doc')->store('public');
 
-        $recoveryReport = Report::where('user_id', $user_id)->last();
+        $recoveryReport = Report::where('user_id', $user_id)->latest()->first();
 
         $recoveryReport['status'] = 'report_in_progress';
-        $recoveryReport['$path_to_doc'] = $path_to_doc;
+        $recoveryReport['path_to_doc'] = $path_to_doc;
 
         $recoveryReport->save();
 
-        $user = User::where('user_id', $user_id)->last();
+        $user = User::where('id', $user_id)->latest()->first();
 
         return view('recovery', [
             'user' => $user

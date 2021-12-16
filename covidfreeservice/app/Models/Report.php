@@ -9,6 +9,9 @@ class Report extends Model
 {
     use HasFactory;
 
+    protected $table = 'reports';
+    protected $fillable = ['user_id', 'path_to_doc', 'type', 'admin_id', 'status'];
+
     public function messages()
     {
         return $this->hasMany('Message');

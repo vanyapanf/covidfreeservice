@@ -9,25 +9,27 @@ use Illuminate\Http\Request;
 class IllnessController extends Controller
 {
     public function illness($user_id) {
-        $user = User::where('user_id', $user_id)->last();
+        $user = User::where('id', $user_id)->latest()->first();;
 
         return view('illness', [
             'user' => $user
         ]);
     }
 
-    public function createIllnessReport($user_id, $has_tracker) {
+    public function createIllnessReport($user_id, Request $request) {
         $illnessReport = new Report(array(
             'user_id' => $user_id,
             'type' => 'illness',
-            'status' => 'unconfirmed_report'
+            'status' => 'unconfirmed_report',
+            'path_to_doc' => '',
+            'admin_id' => -1
         ));
 
         $illnessReport->save();
 
-        $user = User::where('user_id', $user_id)->last();
+        $user = User::where('id', $user_id)->latest()->first();
 
-        if ($has_tracker) {
+        if ($request['has_tracker']) {
             $user['tracker_id'] = uniqid();
 
             $user->save();
@@ -39,16 +41,16 @@ class IllnessController extends Controller
     }
 
     public function addConfirmToIllnessReport($user_id, Request $request) {
-        $path_to_doc = $request->file('document')->store('documents');
+        $path_to_doc = $request->file('doc')->store('public');
 
-        $illnessReport = Report::where('user_id', $user_id)->last();
+        $illnessReport = Report::where('user_id', $user_id)->latest()->first();
 
         $illnessReport['status'] = 'report_in_progress';
-        $illnessReport['$path_to_doc'] = $path_to_doc;
+        $illnessReport['path_to_doc'] = $path_to_doc;
 
         $illnessReport->save();
 
-        $user = User::where('user_id', $user_id)->last();
+        $user = User::where('id', $user_id)->latest()->first();
 
         return view('illness', [
             'user' => $user

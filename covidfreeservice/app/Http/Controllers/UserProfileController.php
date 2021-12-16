@@ -11,17 +11,22 @@ use Illuminate\Http\Request;
 class UserProfileController extends Controller
 {
     public function userProfile($user_id) {
-        $user = User::where('user_id', $user_id)->last();
+        $user = User::where('id', $user_id)->latest()->first();
+
+        $last_report = Report::where('user_id', $user_id)->latest()->first();
+
         $tracker_cards = TrackerInfo::where('tracker_id', $user['tracker_id'])->get();
+
 
         return view('user', [
             'user' => $user,
+            'last_report' => $last_report,
             'tracker_cards' => $tracker_cards
         ]);
     }
 
     public function openMessages($user_id) {
-        $report = Report::where('user_id', $user_id)->last();
+        $report = Report::where('user_id', $user_id)->latest()->first();
 
         $messages = Message::where('report_id', $report['id'])->get();
 
@@ -30,13 +35,13 @@ class UserProfileController extends Controller
         ]);
     }
 
-    public function createMessage($user_id, $message_text) {
-        $report = Report::where('user_id', $user_id)->last();
+    public function createMessage($user_id, Request $request) {
+        $report = Report::where('user_id', $user_id)->latest()->first();
 
         $message = new Message(array(
             'report_id' => $report['id'],
             'user_id' => $user_id,
-            'message_text' => $message_text
+            'message_text' => $request['message_text']
         ));
 
         $message->save();
@@ -48,20 +53,24 @@ class UserProfileController extends Controller
         ]);
     }
 
-    public function createTrackerCard($user_id, $card_info) {
-        $user = User::where('id', $user_id)->last();
+    public function createTrackerCard($user_id, Request $request) {
+        $user = User::where('id', $user_id)->latest()->first();
 
         $trackerInfo = new TrackerInfo(array(
             'tracker_id' => $user['tracker_id'],
-            'temperature' => $card_info['temperature'],
-            'health_rate' => $card_info['health_rate']
+            'temperature' => $request['temperature'],
+            'health_rate' => $request['health_rate']
         ));
 
         $trackerInfo->save();
 
+        $last_report = Report::where('user_id', $user_id)->latest()->first();
+
         $tracker_cards = TrackerInfo::where('tracker_id', $user['tracker_id'])->get();
 
         return view('user', [
+            'user' => $user,
+            'last_report' => $last_report,
             'tracker_cards' => $tracker_cards
         ]);
     }
