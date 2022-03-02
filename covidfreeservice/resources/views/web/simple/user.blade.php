@@ -8,10 +8,10 @@
 
 </head>
 <body class="antialiased">
-    {{ isset($user)? $user : '' }}
-    {{ isset($last_report)? $last_report : '' }}
-    {{ isset($tracker_cards)? $tracker_cards : '' }}
-    {{ isset($messages)? $messages : '' }}
+    <p>{{ isset($user)? $user : '' }}
+    <p>{{ isset($last_report)? $last_report : '' }}
+    <p>{{ isset($tracker_cards)? $tracker_cards : '' }}
+    <p>{{ isset($messages)? $messages : '' }}</p>
 
     <p><input id="url" placeholder="тут текст" name="request">
     <p><input type="submit" value="урл" onclick="addUrl()"></p>

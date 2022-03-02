@@ -1,0 +1,358 @@
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    margin-left: 20px;
+    font-size: 150%;
+}
+
+.title {
+    font-family: 'Public Sans', sans-serif;
+    font-family: 'Rubik', sans-serif;
+}
+
+.btn {
+    background-color: #0d6efd;
+}
+
+.input {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f8f8f8;
+}
+
+#wrapper {
+    background-color: #f8f8f8;
+    color:#0d6efd;
+}
+
+#header {
+    background-color: #ffffff;
+    font-family: 'Public Sans', sans-serif;
+    font-family: 'Rubik', sans-serif;
+}
+
+.profile__status {
+    margin-right: 5px;
+}
+
+.profile__username {
+    margin-right: 10px;
+}
+
+.profile__exit {
+    margin-right: 10px;
+}
+
+#sidebar {
+    width: 200px;
+    float: left;
+    border-radius: 10px;
+    padding-top: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    background-color: #ffffff;
+    font-family: 'Public Sans', sans-serif;
+    font-family: 'Rubik', sans-serif;
+}
+
+.sidebar__logo img {
+    border-radius: 10px;
+    width: 50%;
+}
+
+#main {
+    margin:0 25% 0 25%;
+    margin-top: 20px;
+}
+
+.main-width-primary {
+    width: 50%;
+}
+
+.main-width-large {
+    width: 70%;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+}
+
+.content-wrapper-column {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+}
+
+.post-card__comments-title {
+    cursor: pointer;
+}
+
+.post-card {
+    background-color: #f8f8f8;
+}
+
+.post-card__tags-and-date {
+    color:#bbbbbb;
+}
+
+.post-card__text {
+    margin: 20px;
+}
+
+.post-card__img {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.post-card__img img {
+    border-radius: 10px;
+}
+
+.create-comment__input {
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+}
+
+.create-comment__btn {
+    border-radius: 30px;
+    margin-left: 15px;
+}
+
+.post-card__comment {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+}
+
+.comment__username-and-date {
+    color:#bbbbbb;
+}
+
+.report-illness__btn {
+    margin-top: 20px;
+}
+
+.report-recovery__btn {
+    margin-top: 20px;
+}
+
+.input-line__input {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+
+.login {
+    background-color: #ffffff;
+}
+
+.login__logo img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    width: 20%;
+}
+
+.login__input {
+    margin-top: 20px;
+}
+
+.login__input span {
+    margin-right: 20px;
+}
+
+.login__email {
+    border: none;
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+
+.login__name {
+    border: none;
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+
+.login__surname {
+    border: none;
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+
+.login__group {
+    border: none;
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+
+.login__password {
+    border: none;
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+
+.login__actions {
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.login__actions button {
+    margin-top: 5px;
+    width: 200px;
+}
+
+.user-status__text {
+    font-family: 'Public Sans', sans-serif;
+    font-family: 'Rubik', sans-serif;
+    font-size: 150%;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    background-color: #f8f8f8;
+
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.tracker__temperature {
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: #f8f8f8;
+}
+
+.tracker__btn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tracker-slide__date {
+    color:#bbbbbb;
+}
+
+.tracker-slide__temperature {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.covidtests-card {
+    background-color: #f8f8f8;
+}
+
+.covidtests__open-all {
+    display: block;
+    cursor: pointer;
+}
+
+.covidtests_other-tests {
+    display: none;
+}
+
+.covidtests__hide-all {
+    display: none;
+    cursor: pointer;
+}
+
+.create-post__textarea {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+.create-post__image {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.create-post__doc {
+    cursor: pointer;
+}
+
+.create-post__btn {
+    margin-right: 20px;
+}
+
+.statistic-chart__container {
+    width: 710px;
+    height:340px
+}
+
+.add-admin__input {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+
+.add-admin__btn {
+    margin-top: 10px;
+}
+
+.elem-inline {
+    display:inline-block;
+}
+
+#footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+}

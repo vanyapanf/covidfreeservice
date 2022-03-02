@@ -8,10 +8,10 @@
 
 </head>
 <body class="antialiased">
-    {{ isset($posts)? $posts : '' }}
-    {{ isset($illnessesCount)? $illnessesCount : '' }}
-    {{ isset($recoveriesCount)? $recoveriesCount : '' }}
-    {{ isset($comments)? $comments : '' }}
+    <p>{{ isset($posts)? $posts : '' }}
+    <p>{{ isset($illnessesCount)? $illnessesCount : '' }}
+    <p>{{ isset($recoveriesCount)? $recoveriesCount : '' }}
+    <p>{{ isset($comments)? $comments : '' }}</p>
 
     <p><input id="url" placeholder="тут текст" name="request">
     <p><input type="submit" value="урл" onclick="addUrl()"></p>
@@ -28,4 +28,5 @@
         document.getElementById("form").action = document.getElementById("url").value;
     }
 </script>
+
 

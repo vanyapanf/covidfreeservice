@@ -8,17 +8,13 @@ use Illuminate\Http\Request;
 
 class RecoveryController extends Controller
 {
-    public function recovery($user_id) {
-        $user = User::where('id', $user_id)->latest()->first();
-
-        return view('recovery', [
-            'user' => $user
-        ]);
+    public function recovery() {
+        return view('web.recovery.index');
     }
 
-    public function createRecoveryReport($user_id) {
+    public function createRecoveryReport() {
         $recoveryReport = new Report(array(
-            'user_id' => $user_id,
+            'user_id' => Auth::user()->id,
             'type' => 'recovery',
             'status' => 'unconfirmed_report',
             'path_to_doc' => '',
@@ -27,27 +23,19 @@ class RecoveryController extends Controller
 
         $recoveryReport->save();
 
-        $user = User::where('id', $user_id)->latest()->first();
-
-        return view('recovery', [
-            'user' => $user
-        ]);
+        return view('web.recovery.index');
     }
 
-    public function addConfirmToRecoveryReport($user_id, Request $request) {
+    public function addConfirmToRecoveryReport(Request $request) {
         $path_to_doc = $request->file('doc')->store('public');
 
-        $recoveryReport = Report::where('user_id', $user_id)->latest()->first();
+        $recoveryReport = Report::where('user_id', Auth::user()->id)->latest()->first();
 
         $recoveryReport['status'] = 'report_in_progress';
         $recoveryReport['path_to_doc'] = $path_to_doc;
 
         $recoveryReport->save();
 
-        $user = User::where('id', $user_id)->latest()->first();
-
-        return view('recovery', [
-            'user' => $user
-        ]);
+        return view('web.recovery.index');
     }
 }

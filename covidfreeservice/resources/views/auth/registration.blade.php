@@ -42,11 +42,29 @@
                     <img alt="НИЯУ МИФИ" src="/img/logo1.jpg" />
                 </a>
             </li>
-            <form class="login__form" method="post" action="{{ route('login') }}" >
+            <form class="login__form" method="post" action="{{ route('registration') }}" >
                 @csrf
                 <div class='login__input input-group input-group-lg'>
                     <input type="text" name="email" id="email" placeholder="Email" class="login__email form-control" />
                     @error('email')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class='login__input input-group input-group-lg'>
+                    <input type="text" name="name" id="name" placeholder="Имя пользователя" class="login__name form-control" />
+                    @error('name')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class='login__input input-group input-group-lg'>
+                    <input type="text" name="surname" id="surname" placeholder="Фамилия пользователя" class="login__surname form-control" />
+                    @error('surname')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class='login__input input-group input-group-lg'>
+                    <input type="text" name="study_group" id="study_group" placeholder="Группа (для студентов)" class="login__group form-control" />
+                    @error('study_group')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
@@ -57,12 +75,8 @@
                     @enderror
                 </div>
                 <div class='login__actions form-actions'>
-                    <div class='pull-right'>
-                        <div><a class="text-muted" href="/registration">Регистрация студентов</a></div>
-                        <div><a class="text-muted" href="">Забыли пароль?</a></div>
-                    </div>
                     <button name="button" type="submit" class="btn btn-primary">
-                        Войти
+                        Зарегистрироваться
                     </button>
                 </div>
             </form>

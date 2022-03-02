@@ -8,11 +8,11 @@
 
 </head>
 <body class="antialiased">
-    {{ isset($user)? $user : '' }}
-    {{ isset($reports)? $reports : '' }}
-    {{ isset($chart_data)? $chart_data : '' }}
-    {{ isset($messages)? $messages : '' }}
-    {{ isset($url_to_doc)? $url_to_doc : '' }}
+    <p>{{ isset($user)? $user : '' }}
+    <p>{{ isset($reports)? $reports : '' }}
+    <p>{{ isset($chart_data)? $chart_data : '' }}
+    <p>{{ isset($messages)? $messages : '' }}
+    <p>{{ isset($url_to_doc)? $url_to_doc : '' }}</p>
 
     <p><input id="url" placeholder="тут текст" name="request">
     <p><input type="submit" value="урл" onclick="addUrl()"></p>
