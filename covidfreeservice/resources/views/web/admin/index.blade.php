@@ -2,30 +2,73 @@
 <div class="statistic-chart card">
     <h3 class="title">Статистика заболевания</h3>
     <div class="statistic-chart__container">
-        <meta name="" content="">
         <canvas id="covidStatChart"></canvas>
     </div>
 </div>
-<div class="process-reports card">
-    <a href="{{ route('report_process') }}">Работа с заявками о заболевании/выздоровлении</a>
-</div>
-<form class="create-post card" method="post" action="{{ route('new_post') }}">
+<form class="create-post card" method="post" action="{{ route('new_post') }}" enctype="multipart/form-data">
     @csrf
     <h3 class="title">Запостить пост</h3>
-    <textarea class="create-post__textarea" rows="10" cols="33" name="post"></textarea>
-    <p>
-        <button class="create-post__btn btn btn-primary" type="submit">Запостить</button>
-        <!--<span class="create-post__image"><i class="fas fa-camera lg"></i></span>
-        <span class="create-post__doc"><i class="fas fa-file-upload"></i></span>-->
-    </p>
+    <input class="create-post__title" name="title" placeholder="Заголовок поста">
+    <textarea class="create-post__textarea" name="post_text" placeholder="Напишите что-нибудь"></textarea>
+    <span class="create-post__image">
+        <label class="upload-photo__label" for="upload-photo">Загрузить изображение  <i class="fa fa-solid fa-image lg"></i></label>
+        <input id="upload-photo" name="image" type="file">
+    </span>
+    <button class="create-post__btn btn btn-primary" type="submit">Запостить</button>
 </form>
 <form class="add-admin card" method="post" action="{{ route('add_admin') }}">
     @csrf
     <h3 class="title">Добавить админа</h3>
-    <label class="col-form-label">Имя пользователя</label>
-    <input class="add-admin__input">
+    <input class="add-admin__input" name="email" placeholder="Email пользователя">
     <button class="add-admin__btn btn btn-primary" type="submit">Добавить</button>
 </form>
+<div class="process-reports card">
+    <h3 class="process-reports__title">Поддержка пользователей</h3>
+    <a class="process-reports__btn btn btn-primary" href="{{ route('report_process') }}">Открыть</a>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
-<script type="text/javascript" src="{{ asset('js/admin.js') }}"></script>
+<script>
+    var covidStatCanvas = document.getElementById('covidStatChart').getContext('2d');
+
+    var myChart = new Chart(covidStatCanvas, {
+        type: 'line',
+        data: {
+            datasets: [
+                {
+                    label: 'Заболевшие',
+                    data: {!! $chart_illness_data !!},
+                    borderColor: '#f08080',
+                    backgroundColor: 'transparent',
+                    tension: 0.5
+                },
+                {
+                    label: 'Выздоровевшие',
+                    data: {!! $chart_recovery_data !!},
+                    borderColor: '#1e90ff',
+                    backgroundColor: 'transparent',
+                    tension: 0.5
+                }
+            ]
+        },
+        options: {
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    grid: {
+                        display: false
+                    }
+                }
+            },
+            elements: {
+                point:{
+                    radius: 0
+                }
+            }
+        }
+    });
+</script>
 @endsection

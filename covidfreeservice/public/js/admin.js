@@ -3,7 +3,6 @@ var covidStatCanvas = document.getElementById('covidStatChart').getContext('2d')
 var myChart = new Chart(covidStatCanvas, {
     type: 'line',
     data: {
-        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
         datasets: [
             {
                 label: 'Заболевшие',
@@ -42,22 +41,3 @@ var myChart = new Chart(covidStatCanvas, {
     }
 });
 
-function showHide(Element) {
-    nextElement = Element.nextElementSibling;
-    nextNextElement = nextElement.nextElementSibling;
-    if (nextElement.style.display != 'block') {
-        Element.style.display = 'none';
-        nextElement.style.display = 'block';
-        nextNextElement.style.display = 'block';
-    }
-}
-
-function hideShow(Element) {
-    prevElement = Element.previousElementSibling;
-    prevPrevElement = prevElement.previousElementSibling;
-    if (nextElement.style.display == 'block') {
-        Element.style.display = 'none';
-        prevElement.style.display = 'none';
-        prevPrevElement.style.display = 'block';
-    }
-}

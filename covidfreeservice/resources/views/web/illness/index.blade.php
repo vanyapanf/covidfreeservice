@@ -38,11 +38,12 @@
             <div class="title">
                 <h3>Подтвердить заболевание</h3>
             </div>
-            <form class="confirm-illness__load-form" method="post" action="{{ route('confirm_illnessreport') }}">
+            <form class="confirm-illness__load-form" method="post" action="{{ route('confirm_illnessreport') }}" enctype="multipart/form-data">
                 @csrf
-                <div class="confirm-illness__btn btn btn-primary elem-inline">
+                <input type="file" name="doc">
+                <!--<div class="confirm-illness__btn btn btn-primary elem-inline">
                     <input type="file" name="doc">Загрузить тест или справку  <i class="fas fa-download"></i>
-                </div>
+                </div>-->
                 <button class="confirm-illness__btn btn btn-primary elem-inline" type="submit">
                     Отправить
                 </button>

@@ -36,9 +36,9 @@ Route::post('/admin/add_admin', [AdminProfileController::class, 'addAdmin'])->mi
 Route::get('/report_process', [ReportProcessController::class, 'reportProcess'])->middleware('auth')->name('report_process');
 Route::post('/report_process/{report_id}/accept', [ReportProcessController::class, 'acceptReport'])->middleware('auth')->name('accept_report');
 Route::post('/report_process/{report_id}/cancel', [ReportProcessController::class, 'cancelReport'])->middleware('auth')->name('cancel_report');
-Route::post('/report_process/{report_id}/report_doc', [ReportProcessController::class, 'viewReportDoc'])->middleware('auth')->name('report_doc');
+Route::get('/report_process/{report_id}/close_discussion', [ReportProcessController::class, 'closeDiscussion'])->middleware('auth')->name('close_discussion');
 Route::get('/report_discussion/{report_id}', [ReportDiscussionController::class, 'reportDiscussion'])->middleware('auth')->name('report_discussion');
-Route::get('/report_discussion/{report_id}/new_message', [ReportDiscussionController::class, 'createMessage'])->middleware('auth')->name('create_message');
+Route::post('/report_discussion/{report_id}/new_message', [ReportDiscussionController::class, 'createMessage'])->middleware('auth')->name('create_message');
 /*Route::get('/user/{report_id}/messages', [UserProfileController::class, 'openMessages'])->middleware('auth')->name('open_messages');
 Route::post('/user/{report_id}/new_message', [UserProfileController::class, 'createMessage'])->middleware('auth')->name('create_message');*/
 /*Route::get('/admin/{report_id}/messages', [AdminProfileController::class, 'openMessages'])->middleware('auth');

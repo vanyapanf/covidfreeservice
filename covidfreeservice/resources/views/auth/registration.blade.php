@@ -24,8 +24,8 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
-<div id='wrapper'>
-    <header id="header">
+<div class='wrapper'>
+    <header class="header">
         <nav class='header__navbar navbar'>
             <div class='name'>
                 <a href="/">
@@ -35,55 +35,57 @@
         </nav>
     </header>
 
-    <main id="main">
-        <div class="login card">
-            <li class='login__logo logo'>
-                <a href="/">
-                    <img alt="НИЯУ МИФИ" src="/img/logo1.jpg" />
-                </a>
-            </li>
-            <form class="login__form" method="post" action="{{ route('registration') }}" >
-                @csrf
-                <div class='login__input input-group input-group-lg'>
-                    <input type="text" name="email" id="email" placeholder="Email" class="login__email form-control" />
-                    @error('email')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class='login__input input-group input-group-lg'>
-                    <input type="text" name="name" id="name" placeholder="Имя пользователя" class="login__name form-control" />
-                    @error('name')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class='login__input input-group input-group-lg'>
-                    <input type="text" name="surname" id="surname" placeholder="Фамилия пользователя" class="login__surname form-control" />
-                    @error('surname')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class='login__input input-group input-group-lg'>
-                    <input type="text" name="study_group" id="study_group" placeholder="Группа (для студентов)" class="login__group form-control" />
-                    @error('study_group')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class='login__input input-group input-group-lg'>
-                    <input type="password" name="password" id="password" placeholder="Пароль" class="login__password form-control" />
-                    @error('password')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class='login__actions form-actions'>
-                    <button name="button" type="submit" class="btn btn-primary">
-                        Зарегистрироваться
-                    </button>
-                </div>
-            </form>
-        </div>
-    </main>
+    <div class="main-wrapper">
+        <main class="main main-width-mid">
+            <div class="login card">
+                <li class='login__logo logo'>
+                    <a href="/">
+                        <img alt="НИЯУ МИФИ" src="/img/logo1.jpg" />
+                    </a>
+                </li>
+                <form class="login__form" method="post" action="{{ route('registration') }}" >
+                    @csrf
+                    <div class='login__input input-group input-group-lg'>
+                        <input type="text" name="email" id="email" placeholder="Email" class="login__email form-control" />
+                        @error('email')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class='login__input input-group input-group-lg'>
+                        <input type="text" name="name" id="name" placeholder="Имя пользователя" class="login__name form-control" />
+                        @error('name')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class='login__input input-group input-group-lg'>
+                        <input type="text" name="surname" id="surname" placeholder="Фамилия пользователя" class="login__surname form-control" />
+                        @error('surname')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class='login__input input-group input-group-lg'>
+                        <input type="text" name="study_group" id="study_group" placeholder="Группа (для студентов)" class="login__group form-control" />
+                        @error('study_group')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class='login__input input-group input-group-lg'>
+                        <input type="password" name="password" id="password" placeholder="Пароль" class="login__password form-control" />
+                        @error('password')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class='login__actions form-actions'>
+                        <button name="button" type="submit" class="btn btn-primary">
+                            Зарегистрироваться
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
 
-    <footer id="footer" class="bg-light py-5">
+    <footer class="footer">
         <div class='mephi-title'>
             © НИЯУ МИФИ, 2021–2021
         </div>

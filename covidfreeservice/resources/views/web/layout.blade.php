@@ -4,18 +4,20 @@
     @include('web.layout.head')
 </head>
 <body>
-    <div id='wrapper'>
-        <header id="header">
+    <div class='wrapper'>
+        <header class="header">
             @include('web.layout.header')
         </header>
-        <aside id="sidebar">
-            @include('web.layout.sidebar')
-        </aside>
-        <main id="main" class="main-width-large">
-            @section('main')
-            @show
-        </main>
-        <footer id="footer" class="text-blue py-5">
+        <div class="main-wrapper">
+            <aside class="sidebar">
+                @include('web.layout.sidebar')
+            </aside>
+            <main class="main main-width-large">
+                @section('main')
+                @show
+            </main>
+        </div>
+        <footer class="footer">
             @include('web.layout.footer')
         </footer>
     </div>

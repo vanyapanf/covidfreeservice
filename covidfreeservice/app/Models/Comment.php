@@ -17,7 +17,7 @@ class Comment extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function getDateAsCarbonAttribute(){
+    public function getDateAsCarbonAttribute() {
         return Carbon::parse($this->created_at);
     }
 }

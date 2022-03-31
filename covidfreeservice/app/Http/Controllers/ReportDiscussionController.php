@@ -22,7 +22,12 @@ class ReportDiscussionController extends Controller
     }
 
     public function createMessage($report_id, Request $request) {
-        $report = Report::where('id', $report_id)->latest()->first();
+       if (Message::where('report_id', $report_id)->get()->isEmpty()) {
+            $report = Report::where('id', $report_id)->latest()->first();
+            $report['status'] = 'in_discussion';
+
+            $report->save();
+        }
 
         $message = new Message(array(
             'report_id' => $report_id,
@@ -32,6 +37,12 @@ class ReportDiscussionController extends Controller
 
         $message->save();
 
-        return redirect(route(''));
+        return redirect(route('report_discussion', ['report_id' => $report_id]));
+    }
+
+    public function getMessages($report_id, Request $request) {
+        $messages = Message::where('report_id', $report_id)->get();
+
+        redirect(route('report_discussion', ['report_id' => $report_id]));
     }
 }

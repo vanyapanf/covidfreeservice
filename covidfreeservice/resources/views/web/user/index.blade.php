@@ -5,39 +5,40 @@
             <h3>Привет, <span class="username">{{ Auth::user()->name }}</span> 👋</h3>
         </div>
     </div>
-    @if (!isset($last_report) || ($user->status === 'healthy' && report->type === 'recovery' && $report->status === 'accept'))
+    @if (!isset($last_report) || (Auth::user()->status === 'healthy' && $last_report->type === 'recovery' && $last_report->status === 'accept'))
         <div class="user-status card">
             <div class="title">
                 <h3>Cтатус <span class="username">{{ Auth::user()->name }}</span></h3>
             </div>
             <p class="user-status__text">Вы здоровы &#128512;</p>
         </div>
-    @elseif ($user->status === 'healthy' && $report->type === 'illness' && $report->status === 'report_in_progress')
+    @elseif (Auth::user()->status === 'healthy' && $last_report->type === 'illness' && $last_report->status === 'report_in_progress')
         <div class="user-status card">
             <div class="title">
-                <h3>Cтатус <span class="username">{{ $user->name }}</span></h3>
+                <h3>Cтатус <span class="username">{{ Auth::user()->name }}</span></h3>
             </div>
             <p class="user-status__text">Подтверждение заболевания проверяется &#128076;</p>
         </div>
-    @elseif ($user->status === 'illness' && $report->type === 'recovery' && $report->status === 'report_in_progress')
+    @elseif (Auth::user()->status === 'illness' && $last_report->type === 'recovery' && $last_report->status === 'report_in_progress')
         <div class="user-status card">
             <div class="title">
                 <h3>Cтатус <span class="username">{{ Auth::user()->name }}</span></h3>
             </div>
             <p class="user-status__text">Подтверждение выздоровления проверяется &#128076;</p>
         </div>
-    @elseif ($report->status === 'cancel_report')
+    @elseif ($last_report->status === 'cancel_report' || $last_report->status === 'in_discussion')
         <div class="user-status card">
             <div class="title">
                 <h3>Cтатус <span class="username">{{ Auth::user()->name }}</span></h3>
             </div>
-            <p class="user-status__text">Ваше подтверждение отклонено &#128076;</p>
-            <a class="user-status__messages-title" href="{{ route('report_discussion', ['report_id' => $report->id]) }}"><i class="far fa-comment"></i> Открыть сообщения</a>
+            <p class="user-status__text">Ваше подтверждение отклонено ¯\_(ツ)_/¯</p>
+            <p class="user-status__reason">Причина: {{ $last_report->reason }}</p>
+            <a class="user-status__messages-title" href="{{ route('report_discussion', ['report_id' => $last_report->id]) }}"><i class="far fa-comment"></i> Открыть сообщения</a>
         </div>
-    @elseif ($user->status === 'illness')
+    @elseif (Auth::user()->status === 'illness')
         <div class="user-status card">
             <div class="title">
-                <h3>Cтатус <span class="username">{{ $user->name }}</span></h3>
+                <h3>Cтатус <span class="username">{{ Auth::user()->name }}</span></h3>
             </div>
             <p class="user-status__text">Вы на карантине &#129298;</p>
         </div>
@@ -75,5 +76,13 @@
         <div class="swiper-pagination"></div>
     </div>
 </div>
-<script type="text/javascript" src="{{ asset('js/user.js') }}"></script>
+<script>
+    var swiper = new Swiper(".swiper", {
+        initialSlide: 1,
+        pagination: {
+            el: ".swiper-pagination",
+        }
+    });
+</script>
+{{--<script type="text/javascript" src="{{ asset('js/user.js') }}"></script>--}}
 @endsection

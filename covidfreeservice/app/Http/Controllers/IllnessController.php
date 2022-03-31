@@ -6,6 +6,7 @@ use App\Models\Report;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Jobs\ReportProcessJob;
 
 class IllnessController extends Controller
 {
@@ -44,6 +45,8 @@ class IllnessController extends Controller
         $illnessReport['path_to_doc'] = $path_to_doc;
 
         $illnessReport->save();
+
+        ReportProcessJob::dispatch($illnessReport['id'], $path_to_doc);
 
         return view('web.illness.index');
     }

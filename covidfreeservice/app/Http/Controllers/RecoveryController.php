@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Report;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Jobs\ReportProcessJob;
 
 class RecoveryController extends Controller
 {
@@ -35,6 +36,8 @@ class RecoveryController extends Controller
         $recoveryReport['path_to_doc'] = $path_to_doc;
 
         $recoveryReport->save();
+
+        ReportProcessJob::dispatch($recoveryReport['id'], $path_to_doc);
 
         return view('web.recovery.index');
     }

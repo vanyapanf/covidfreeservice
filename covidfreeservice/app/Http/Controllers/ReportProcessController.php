@@ -5,20 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\Report;
 use App\Models\TrackerInfo;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Collection;
 
 class ReportProcessController extends Controller
 {
     public function reportProcess() {
-        $active_reports = Report::where('status','report_in_progress')->where('admin_id',-1)->get();
-        $canceled_reports = Report::where('status','cancel_report')->where('admin_id', Auth::user()->id)->get();
+        $canceled_reports = Report::where('status','in_discussion')->where('admin_id', Auth::user()->id)->get();
+        $new_canceled_reports = new Collection();
+
+        if (count($canceled_reports) < 5) {
+            $new_canceled_reports = Report::where('status','in_discussion')->where('admin_id', -1)->take(5 - count($canceled_reports))->get();
+            array_walk($new_canceled_reports, function($item, $key) { $item['admin_id'] = Auth::user()->id; });
+        }
 
         return view('web.report_process.index', [
-            'active_reports' => $active_reports,
-            'canceled_reports' => $canceled_reports
+            //'active_reports' => $active_reports,
+            'canceled_reports' => $canceled_reports->merge($new_canceled_reports)
         ]);
     }
 
@@ -65,13 +71,13 @@ class ReportProcessController extends Controller
         return redirect(route('report_process'));
     }
 
-    public function viewReportDoc($report_id) {
+    public function closeDiscussion($report_id) {
         $report = Report::where('id', $report_id)->latest()->first();
 
-        $url_to_doc = Storage::url($report['path_to_doc']);
+        $report['status'] = 'cancel_report';
 
-        return view('web.admin.index', [
-            'url_to_doc' => $url_to_doc
-        ]);
+        $report->save();
+
+        return redirect(route('report_process'));
     }
 }

@@ -24,8 +24,8 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
-<div id='wrapper'>
-    <header id="header">
+<div class='wrapper'>
+    <header class="header">
         <nav class='header__navbar navbar'>
             <div class='name'>
                 <a href="/">
@@ -35,47 +35,47 @@
         </nav>
     </header>
 
-    <main id="main">
-        <div class="login card">
-            <li class='login__logo logo'>
-                <a href="/">
-                    <img alt="НИЯУ МИФИ" src="/img/logo1.jpg" />
-                </a>
-            </li>
-            <form class="login__form" method="post" action="{{ route('login') }}" >
-                @csrf
-                <div class='login__input input-group input-group-lg'>
-                    <input type="text" name="email" id="email" placeholder="Email" class="login__email form-control" />
-                    @error('email')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class='login__input input-group input-group-lg'>
-                    <input type="password" name="password" id="password" placeholder="Пароль" class="login__password form-control" />
-                    @error('password')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class='login__actions form-actions'>
-                    <div class='pull-right'>
-                        <div><a class="text-muted" href="/registration">Регистрация студентов</a></div>
-                        <div><a class="text-muted" href="">Забыли пароль?</a></div>
+    <div class="main-wrapper">
+        <main class="main main-width-mid">
+            <div class="login card">
+                <li class='login__logo logo'>
+                    <a href="/">
+                        <img alt="НИЯУ МИФИ" src="/img/logo1.jpg" />
+                    </a>
+                </li>
+                <form class="login__form" method="post" action="{{ route('login') }}" >
+                    @csrf
+                    <div class='login__input input-group input-group-lg'>
+                        <input type="text" name="email" id="email" placeholder="Email" class="login__email form-control" />
+                        @error('email')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
-                    <button name="button" type="submit" class="btn btn-primary">
-                        Войти
-                    </button>
-                </div>
-            </form>
-        </div>
-    </main>
+                    <div class='login__input input-group input-group-lg'>
+                        <input type="password" name="password" id="password" placeholder="Пароль" class="login__password form-control" />
+                        @error('password')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class='login__actions form-actions'>
+                        <div class='pull-right'>
+                            <div><a class="text-muted" href="/registration">Регистрация студентов</a></div>
+                            <div><a class="text-muted" href="">Забыли пароль?</a></div>
+                        </div>
+                        <button name="button" type="submit" class="btn btn-primary">
+                            Войти
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
 
-    <footer id="footer" class="bg-light py-5">
+    <footer class="footer">
         <div class='mephi-title'>
             © НИЯУ МИФИ, 2021–2021
         </div>
         <div class='dev-title'>Dev by vanyapanf</div>
     </footer>
 </div>
-
-
 </body>

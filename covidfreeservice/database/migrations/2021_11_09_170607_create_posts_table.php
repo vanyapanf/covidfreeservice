@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->bigInteger('user_id');
             $table->string('tag');
             $table->text('post_text');
-            $table->string('path_to_file');
+            $table->string('path_to_img');
             $table->timestamps();
         });
     }

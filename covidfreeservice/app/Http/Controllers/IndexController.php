@@ -13,7 +13,7 @@ class IndexController extends Controller
     public function index() {
         $illnessesCount = Report::where('type', 'illness')->count();
         $recoveriesCount = Report::where('type', 'recovery')->count();
-        $posts = Post::all();
+        $posts = Post::all()->sortByDesc('created_at');
         $comments_count = array();
         foreach ($posts as $post){
             $comments_count[$post['id']] = Comment::where('post_id', $post['id'])->count();
