@@ -19,7 +19,7 @@ class LoginController extends Controller
         }
 
         return redirect(route('login'))->withErrors([
-           'email' => 'Не удалось авторизоваться'
+           'email' => 'Не удалось авторизоваться. Почта или пароль неверны'
         ]);
     }
 }

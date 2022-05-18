@@ -19,7 +19,7 @@ class AdminProfileController extends Controller
 
         $chart_illness_data = array();
         $chart_recovery_data = array();
-        for ($i = 0; $i < 7; $i++) {
+        for ($i = 6; $i >= 0; $i--) {
             $date1 = Carbon::today()->subDays($i+1)->toDateString();
             $date2 = Carbon::today()->subDays($i)->toDateString();
             $chart_illness_data[$date1] = Report::where('type', 'illness')->whereBetween('created_at', [$date1, $date2])->get()->count();
@@ -55,14 +55,20 @@ class AdminProfileController extends Controller
     public function addAdmin(Request $request) {
         $selectedUser = User::where('email', $request['email'])->latest()->first();
 
-        $selectedUser['is_admin'] = true;
+        if ($_POST['action'] == 'Add') {
+            $selectedUser['is_admin'] = true;
+        }
+        else if ($_POST['action'] == 'Delete') {
+            $selectedUser['is_admin'] = false;
+        }
 
         $selectedUser->save();
 
         return redirect(route('admin'));
     }
 
-    public function openMessages($report_id) {
+
+    /*public function openMessages($report_id) {
         $messages = Message::where('report_id', $report_id)->get();
 
         return view('web.admin.index', [
@@ -85,5 +91,5 @@ class AdminProfileController extends Controller
         return view('web.admin.index', [
             'messages' => $messages
         ]);
-    }
+    }*/
 }

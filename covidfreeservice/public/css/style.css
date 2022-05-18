@@ -16,9 +16,9 @@ li {
     font-family: 'Rubik', sans-serif;
 }
 
-.btn {
+/*.btn {
     background-color: #0d6efd;
-}
+}*/
 
 .input {
     border: none;
@@ -291,6 +291,10 @@ li {
     font-size: 150%;
 }
 
+.tracker {
+    padding: 20px;
+}
+
 .swiper {
     width: 100%;
     height: 100%;
@@ -357,6 +361,31 @@ li {
     background-color: #ffffff;
 }
 
+.profile__group {
+    margin-top: 20px;
+}
+
+.profile__title {
+    margin-bottom: 10px;
+    font-size: large;
+}
+
+.profile__input {
+    border: none;
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+
+.profile__actions {
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.profile__actions button {
+    margin-top: 5px;
+    width: 200px;
+}
+
 .create-post__title {
     border: none;
     border-radius: 10px;
@@ -407,8 +436,14 @@ li {
     background-color: #f8f8f8;
 }
 
+.add-admin__actions {
+    display: flex;
+    justify-content: space-between;
+}
+
 .add-admin__btn {
     margin-top: 10px;
+    width: 49%;
 }
 
 .elem-inline {

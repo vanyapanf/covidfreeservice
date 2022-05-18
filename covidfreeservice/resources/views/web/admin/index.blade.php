@@ -18,12 +18,15 @@
 </form>
 <form class="add-admin card" method="post" action="{{ route('add_admin') }}">
     @csrf
-    <h3 class="title">Добавить админа</h3>
+    <h3 class="title">Добавить/удалить админа</h3>
     <input class="add-admin__input" name="email" placeholder="Email пользователя">
-    <button class="add-admin__btn btn btn-primary" type="submit">Добавить</button>
+    <div class="add-admin__actions">
+        <button class="add-admin__btn btn btn-primary" name="action" value="Add" type="submit">Добавить</button>
+        <button class="add-admin__btn btn btn-primary" name="action" value="Delete" type="submit">Удалить</button>
+    </div>
 </form>
 <div class="process-reports card">
-    <h3 class="process-reports__title">Поддержка пользователей</h3>
+    <h3 class="title">Поддержка пользователей</h3>
     <a class="process-reports__btn btn btn-primary" href="{{ route('report_process') }}">Открыть</a>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>

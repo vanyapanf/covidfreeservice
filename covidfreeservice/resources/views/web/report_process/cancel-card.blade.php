@@ -10,8 +10,8 @@
             Тест <i class="fas fa-file"></i>
         </a>
         <a class="card-button btn btn-primary" href="{{ route('close_discussion', ['report_id' => $report->id]) }}" >
-            Закрыть обсуждение <i class="fas fa-times"></i>
+            Закрыть заявку <i class="fas fa-times"></i>
         </a>
-        <a class="card-button" href="{{ route('report_discussion', ['report_id' => $report->id]) }}">Открыть сообщения <i class="fas fa-comment"></i></a>
+        <a class="card-button" href="{{ route('report_discussion', ['report_id' => $report->id]) }}">Открыть чат <i class="fas fa-comment"></i></a>
     </div>
 </div>

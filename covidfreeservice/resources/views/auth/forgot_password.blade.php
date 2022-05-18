@@ -38,8 +38,8 @@
     <div class="main-wrapper">
         <main class="main main-width-mid">
             <div class="login card">
-                <h3>Регистрация</h3>
-                <form class="login__form" method="post" action="{{ route('registration') }}" >
+                <h3>Восстановление пароля</h3>
+                <form class="login__form" method="post" action="{{ route('forgot_password') }}" >
                     @csrf
                     <div class='login__input form-group'>
                         <input type="text" name="email" id="email" placeholder="Email" class="login__email form-control form-control-lg" />
@@ -47,33 +47,9 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class='login__input form-group'>
-                        <input type="text" name="name" id="name" placeholder="Имя пользователя" class="login__name form-control form-control-lg" />
-                        @error('name')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class='login__input form-group'>
-                        <input type="text" name="surname" id="surname" placeholder="Фамилия пользователя" class="login__surname form-control form-control-lg" />
-                        @error('surname')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class='login__input form-group'>
-                        <input type="text" name="study_group" id="study_group" placeholder="Группа (для студентов)" class="login__group form-control form-control-lg" />
-                        @error('study_group')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class='login__input form-group'>
-                        <input type="password" name="password" id="password" placeholder="Пароль" class="login__password form-control form-control-lg" />
-                        @error('password')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
                     <div class='login__actions form-actions'>
                         <button name="button" type="submit" class="btn btn-primary">
-                            Зарегистрироваться
+                            Отправить
                         </button>
                     </div>
                 </form>

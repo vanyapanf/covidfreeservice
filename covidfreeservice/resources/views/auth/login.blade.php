@@ -45,22 +45,19 @@
                 </li>
                 <form class="login__form" method="post" action="{{ route('login') }}" >
                     @csrf
-                    <div class='login__input input-group input-group-lg'>
-                        <input type="text" name="email" id="email" placeholder="Email" class="login__email form-control" />
-                        @error('email')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                    @error('email')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    <div class='login__input form-group'>
+                        <input type="text" name="email" id="email" placeholder="Email" class="login__email form-control form-control-lg" />
                     </div>
-                    <div class='login__input input-group input-group-lg'>
-                        <input type="password" name="password" id="password" placeholder="Пароль" class="login__password form-control" />
-                        @error('password')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                    <div class='login__input form-group'>
+                        <input type="password" name="password" id="password" placeholder="Пароль" class="login__password form-control form-control-lg" />
                     </div>
                     <div class='login__actions form-actions'>
                         <div class='pull-right'>
                             <div><a class="text-muted" href="/registration">Регистрация студентов</a></div>
-                            <div><a class="text-muted" href="">Забыли пароль?</a></div>
+                            <div><a class="text-muted" href="/forgot_password">Забыли пароль?</a></div>
                         </div>
                         <button name="button" type="submit" class="btn btn-primary">
                             Войти
@@ -73,7 +70,7 @@
 
     <footer class="footer">
         <div class='mephi-title'>
-            © НИЯУ МИФИ, 2021–2021
+            © НИЯУ МИФИ, 2021–2022
         </div>
         <div class='dev-title'>Dev by vanyapanf</div>
     </footer>

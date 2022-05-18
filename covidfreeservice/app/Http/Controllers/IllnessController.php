@@ -14,23 +14,28 @@ class IllnessController extends Controller
         return view('web.illness.index');
     }
 
-    public function createIllnessReport(Request $request) {
-        $illnessReport = new Report(array(
-            'user_id' => Auth::user()->id,
-            'type' => 'illness',
-            'status' => 'unconfirmed_report',
-            'path_to_doc' => '',
-            'admin_id' => -1
-        ));
+    public function createIllnessReport(Request $request)
+    {
+        if($_POST['action'] == 'Tracker') {
+            $user = User::where('id', Auth::user()->id)->first();
 
-        $illnessReport->save();
-
-        $user = User::where('id', Auth::user()->id)->latest()->first();
-
-        if ($request['has_tracker']) {
             $user['tracker_id'] = uniqid();
 
             $user->save();
+        }
+        else if ($_POST['action'] == 'Add') {
+            $illnessReport = new Report(array(
+                'user_id' => Auth::user()->id,
+                'type' => 'illness',
+                'status' => 'unconfirmed_report',
+                'path_to_doc' => '',
+                'admin_id' => -1
+            ));
+
+            $illnessReport->save();
+        }
+        else if ($_POST['action'] == 'Cancel') {
+            Report::where('user_id', Auth::user()->id)->latest()->first()->delete();
         }
 
         return view('web.illness.index');

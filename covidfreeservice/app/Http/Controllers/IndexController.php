@@ -11,8 +11,8 @@ use Illuminate\Http\Request;
 class IndexController extends Controller
 {
     public function index() {
-        $illnessesCount = Report::where('type', 'illness')->count();
-        $recoveriesCount = Report::where('type', 'recovery')->count();
+        $illnessesCount = Report::where('type', 'illness')->distinct('user_id')->count(); //TODO: сделать выборку по уникальным id
+        $recoveriesCount = Report::where('type', 'recovery')->distinct('user_id')->count(); //TODO: сделать выборку по уникальным id
         $posts = Post::all()->sortByDesc('created_at');
         $comments_count = array();
         foreach ($posts as $post){

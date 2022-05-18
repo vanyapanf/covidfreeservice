@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Report;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Jobs\ReportProcessJob;
 
 class RecoveryController extends Controller
@@ -14,15 +15,20 @@ class RecoveryController extends Controller
     }
 
     public function createRecoveryReport() {
-        $recoveryReport = new Report(array(
-            'user_id' => Auth::user()->id,
-            'type' => 'recovery',
-            'status' => 'unconfirmed_report',
-            'path_to_doc' => '',
-            'admin_id' => -1
-        ));
+        if ($_POST['action'] == 'Add') {
+            $recoveryReport = new Report(array(
+                'user_id' => Auth::user()->id,
+                'type' => 'recovery',
+                'status' => 'unconfirmed_report',
+                'path_to_doc' => '',
+                'admin_id' => -1
+            ));
 
-        $recoveryReport->save();
+            $recoveryReport->save();
+        }
+        else if ($_POST['action'] == 'Cancel') {
+            Report::where('user_id', Auth::user()->id)->latest()->first()->delete();
+        }
 
         return view('web.recovery.index');
     }
