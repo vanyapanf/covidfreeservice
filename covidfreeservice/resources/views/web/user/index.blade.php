@@ -62,7 +62,7 @@
 @endif
 @if (isset(Auth::user()->tracker_id))
     <div class="tracker swiper card">
-        <div class="title">
+        <div class="title tracker__title">
             <h3>Трекер здоровья</h3>
         </div>
         <div class="swiper-wrapper">

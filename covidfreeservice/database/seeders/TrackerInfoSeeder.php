@@ -13,6 +13,6 @@ class TrackerInfoSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }

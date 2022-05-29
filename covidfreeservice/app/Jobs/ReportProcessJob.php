@@ -56,7 +56,6 @@ class ReportProcessJob implements ShouldQueue
             $report_is_ok = true;
 
             // результат теста
-            //TODO: придумать регулярку для обнар необнар и тд
             if ($report->type == 'illness'
                 && preg_match('/ (О|о)бнар(ужена|ужено|ужен|) | (П|п)оложительн(ый|ая|ое|) /', $recognized_text)
                 && !preg_match('/ (Н|н)е обнар(ужена|ужено|ужен|) | (О|о)трицательн(ый|ая|ое|) /', $recognized_text)){
@@ -74,18 +73,16 @@ class ReportProcessJob implements ShouldQueue
             // дата теста
             $date_regex = '/\d{1,2}\.\d{1,2}\.\d{2,4}|\d{1,2}-\d{1,2}-\d{2,4}/';
             preg_match_all($date_regex, $recognized_text, $date_arr);
-            $report_date = strtotime($report->created_at);
-            //TODO: потом изменить на 30 дней
-            $nearest_date = strtotime('-365 days', $report_date);
+            $today_date = time();
+            $nearest_date = strtotime('-30 days', $today_date);
             foreach ($date_arr[0] as $date_str) {
                 $date = strtotime($date_str);
-                if ($date <= $report_date
-                    && $report_date - $date < $report_date - $nearest_date) {
+                if ($date <= $today_date
+                    && $today_date - $date < $today_date - $nearest_date) {
                     $nearest_date = $date;
                 }
             }
-            //TODO: потом изменить на 30 дней
-            if ($nearest_date != strtotime('-365 days', $report_date)) {
+            if ($nearest_date != strtotime('-30 days', $today_date)) {
                 $report_info['date'] = date('Y-m-d H:i:s', $nearest_date);
             }
             else {
@@ -108,7 +105,7 @@ class ReportProcessJob implements ShouldQueue
             }
 
             if ($report_is_ok) {
-                $report['admin_id'] = -1;
+                $report['admin_id'] = NULL;
                 $report['status'] = 'accept';
                 $report['report_info'] = serialize($report_info);
                 $report->save();
@@ -126,7 +123,7 @@ class ReportProcessJob implements ShouldQueue
             }
             else {
                 $report = Report::where('id', $report['id'])->latest()->first();
-                $report['admin_id'] = -1;
+                $report['admin_id'] = NULL;
                 $report['status'] = 'cancel_report';
                 $report['reason'] = $report_reason;
                 $report['report_info'] = serialize($report_info);

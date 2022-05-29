@@ -18,7 +18,7 @@ class ReportProcessController extends Controller
         $new_canceled_reports = new Collection();
 
         if (count($canceled_reports) < 5) {
-            $new_canceled_reports = Report::where('status','in_discussion')->where('admin_id', -1)->take(5 - count($canceled_reports))->get();
+            $new_canceled_reports = Report::where('status','in_discussion')->where('admin_id', NULL)->take(5 - count($canceled_reports))->get();
             array_walk($new_canceled_reports, function($item, $key) { $item['admin_id'] = Auth::user()->id; });
         }
 

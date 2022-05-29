@@ -6,21 +6,21 @@
     </li>
     <li class="sidebar__link">
         <a href="{{ route('user') }}">
-            <i class="fa fa-home fa-fw"></i>
+            <i class="fa fa-user fa-fw"></i>
             Личная страница
         </a>
     </li>
     @if (Auth::user()->is_admin)
     <li class="sidebar__link">
         <a href="{{ route('admin') }}">
-            <i class="fa fa-home fa-fw"></i>
+            <i class="fa fa-user-cog fa-fw"></i>
             Админ-панель
         </a>
     </li>
     @endif
     <li class="sidebar__link">
         <a href="{{ route('index') }}">
-            <i class="fa fa-atom fa-fw"></i>
+            <i class="fa fa-home fa-fw"></i>
             Главная
         </a>
     </li>
@@ -36,13 +36,13 @@
             Отметка о выздоровлении
         </a>
     </li>
-    <li class="sidebar__link">
+    <!--<li class="sidebar__link">
         <a href="#">
             <i class="fas fa-question"></i>
             FAQ
         </a>
     </li>
-    <!--<li class="sidebar__link">
+    <li class="sidebar__link">
         <a href="#">
             <i class="fa fa-sign-out-alt fa-fw"></i>
             Выход

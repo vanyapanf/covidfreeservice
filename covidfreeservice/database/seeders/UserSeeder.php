@@ -17,37 +17,31 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => Str::random(10),
-            'surname' => Str::random(10),
-            'fathername' => Str::random(10),
-            'email' => Str::random(10).'@gmail.com',
-            'password' => Hash::make('password'),
+            'name' => 'Admin',
+            'surname' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('1234567'),
             'email_verified_at' => now(),
             'is_admin' => true,
             'role' => 'worker',
             'study_group' => '',
-            'tracker_id' => '',
             'status' => 'healthy',
             'created_at' => now()
         ]);
 
-        for ($i=0; $i<10; $i++) {
-            DB::table('users')->insert([
-                'name' => Str::random(10),
-                'surname' => Str::random(10),
-                'fathername' => Str::random(10),
-                'email' => Str::random(10) . '@gmail.com',
-                'password' => Hash::make('password'),
-                'email_verified_at' => now(),
-                'is_admin' => false,
-                'role' => 'student',
-                'study_group' => 'b0'.$i.'-00'.$i,
-                'tracker_id' => '',
-                'status' => 'healthy',
-                'created_at' => now()
-            ]);
-        }
+
+        DB::table('users')->insert([
+            'name' => 'User',
+            'surname' => 'User',
+            'email' => 'user@gmail.com',
+            'password' => Hash::make('1234567'),
+            'email_verified_at' => now(),
+            'is_admin' => false,
+            'role' => 'student',
+            'study_group' => 'М00-000',
+            'status' => 'healthy',
+            'created_at' => now()
+        ]);
+
     }
-
-
 }

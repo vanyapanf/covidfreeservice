@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 class AdminProfileController extends Controller
 {
     public function adminProfile() {
-        $reports = Report::where('status','report_in_progress')->where('admin_id',-1)->get();
+        $reports = Report::where('status','report_in_progress')->where('admin_id',NULL/*-1*/)->get();
 
         $chart_illness_data = array();
         $chart_recovery_data = array();

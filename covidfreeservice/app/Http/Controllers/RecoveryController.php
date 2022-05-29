@@ -21,7 +21,7 @@ class RecoveryController extends Controller
                 'type' => 'recovery',
                 'status' => 'unconfirmed_report',
                 'path_to_doc' => '',
-                'admin_id' => -1
+                'admin_id' => NULL/*-1*/
             ));
 
             $recoveryReport->save();

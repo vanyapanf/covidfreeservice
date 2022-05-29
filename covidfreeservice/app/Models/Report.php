@@ -20,6 +20,4 @@ class Report extends Model
     {
         return $this->hasMany('Message');
     }
-
-
 }

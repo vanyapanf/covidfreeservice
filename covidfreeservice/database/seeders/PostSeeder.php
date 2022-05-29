@@ -14,13 +14,12 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i<10; $i++) {
-            DB::table('posts')->insert([
-                'user_id' => 1,
-                'tag' => '#covidfreeservice',
-                'post_text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
-                'created_at' => now()
-            ]);
-        }
+        DB::table('posts')->insert([
+            'user_id' => 1,
+            'title' => 'Привет!',
+            'post_text' => 'Это первый пост в системе mephicovidfreeservice',
+            'path_to_img' => '',
+            'created_at' => now()
+        ]);
     }
 }

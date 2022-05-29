@@ -294,6 +294,9 @@ li {
 .tracker {
     padding: 20px;
 }
+.tracker__title {
+  padding: 20px;
+}
 
 .swiper {
     width: 100%;

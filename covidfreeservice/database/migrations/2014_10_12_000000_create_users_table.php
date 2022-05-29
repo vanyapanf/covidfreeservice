@@ -22,8 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('password', 255)->nullable(false);
             $table->boolean('is_admin');
             $table->string('role');
-            $table->string('study_group');
-            $table->string('tracker_id');
+            $table->string('study_group')->nullable();
+            $table->string('tracker_id')->nullable();
             $table->string('status');
             $table->rememberToken();
             $table->timestamps();

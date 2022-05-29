@@ -7,7 +7,7 @@
 </div>
 <form class="create-post card" method="post" action="{{ route('new_post') }}" enctype="multipart/form-data">
     @csrf
-    <h3 class="title">Запостить пост</h3>
+    <h3 class="title">Добавить пост</h3>
     <input class="create-post__title" name="title" placeholder="Заголовок поста">
     <textarea class="create-post__textarea" name="post_text" placeholder="Напишите что-нибудь"></textarea>
     <span class="create-post__image">
